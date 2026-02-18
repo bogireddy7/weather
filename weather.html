@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Weather App</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="phone">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-title">Weather</div>
+    <div class="live-badge"><div class="live-dot"></div> Live Data</div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <div class="search-row">
+      <div class="search-box">
+        <span style="opacity:0.45;font-size:0.95rem">🔍</span>
+        <input id="search-input" type="text" placeholder="Search any city..."/>
+      </div>
+      <button class="search-btn" id="search-btn" onclick="doSearch()">Search</button>
+    </div>
+  </div>
+
+  <!-- ERROR -->
+  <div class="error-wrap" id="error-wrap"></div>
+
+  <!-- LOADING -->
+  <div class="loading-wrap" id="loading-wrap">
+    <div class="spinner"></div>
+    <p>Fetching live weather...</p>
+  </div>
+
+  <!-- DEFAULT -->
+  <div class="default-wrap" id="default-wrap">
+    <div class="default-house">⛅</div>
+    <div class="default-hint">Search a city above to see<br>real-time weather data</div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-wrap" id="result-wrap">
+    <!-- MAIN CARD -->
+    <div class="main-card">
+      <div class="city-row">
+        <div>
+          <div class="city-name" id="r-city">—</div>
+          <div class="country-name" id="r-country">—</div>
+        </div>
+        <div class="weather-icon-main" id="r-icon">🌤</div>
+      </div>
+      <div class="big-temp" id="r-temp">—°</div>
+      <div class="condition-label" id="r-cond">—</div>
+      <div class="hl-row" id="r-hl">H: —° &nbsp;|&nbsp; L: —° &nbsp;|&nbsp; Feels like —°</div>
+      <div class="detail-row">
+        <div class="detail-pill">
+          <div class="detail-pill-icon">💧</div>
+          <div class="detail-pill-val" id="r-humidity">—</div>
+          <div class="detail-pill-label">Humidity</div>
+        </div>
+        <div class="detail-pill">
+          <div class="detail-pill-icon">💨</div>
+          <div class="detail-pill-val" id="r-wind">—</div>
+          <div class="detail-pill-label">Wind</div>
+        </div>
+        <div class="detail-pill">
+          <div class="detail-pill-icon">👁</div>
+          <div class="detail-pill-val" id="r-uv">—</div>
+          <div class="detail-pill-label">UV Index</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORECAST TABS -->
+    <div class="tabs-card">
+      <div class="tab-row">
+        <button class="tab-btn active" id="tab-h" onclick="switchTab('hourly')">⏱ Hourly Forecast</button>
+        <button class="tab-btn" id="tab-w" onclick="switchTab('weekly')">📅 Weekly Forecast</button>
+      </div>
+      <div id="panel-hourly">
+        <div class="hourly-strip" id="hourly-strip"></div>
+      </div>
+      <div id="panel-weekly" class="hidden">
+        <div class="weekly-list" id="weekly-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+ <script src="script.js"></script>
+</body>
+</html>
